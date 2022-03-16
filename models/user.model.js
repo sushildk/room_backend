@@ -40,6 +40,10 @@ var userSchema = new Schema(
       enum: ["admin", "customer"],
       default: "customer",
     },
+    bookRoom: {
+      type: Schema.Types.ObjectId,
+      ref: "room",
+    },
   },
   {
     timestamps: true,

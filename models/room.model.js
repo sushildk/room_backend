@@ -1,4 +1,4 @@
-const { number, string } = require("joi");
+const { number, string, boolean } = require("joi");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -25,7 +25,6 @@ var roomSchema = new Schema(
     phoneNumber: {
       type: String,
       require: true,
-      unique: true,
     },
     numberOfRoom: Number,
     carParking: {
@@ -35,6 +34,11 @@ var roomSchema = new Schema(
     bikeParking: {
       type: Boolean,
       default: false,
+    },
+    booked: Boolean,
+    bookedUser: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
     },
     address: String,
     description: String,
